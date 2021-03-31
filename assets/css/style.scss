@@ -1,0 +1,10 @@
+$primary : #38b2ac;
+
+// Permet d'importer Bootstrap dans notre code
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+
+body {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.864);
+}

@@ -1,3 +1,4 @@
+</div> <!-- fin container -->
     <?php
     // Ajoute les JS de WordPress et des plugins
     wp_footer() ?>

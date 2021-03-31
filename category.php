@@ -4,26 +4,10 @@
 
 <?php if (have_posts()) : // On verifie s'il y a des articles
     while (have_posts()) : the_post(); // On parcours chaque article 
-?>
-        <div>
-            <div>
-                Dans <?php the_category(',  '); ?> le <?php echo get_the_date('d F Y à H\hi'); ?>
 
-            </div>
-
-            <h2>
-                <?php the_title(); ?>
-            </h2>
-
-            <p>
-                <?php echo get_the_excerpt() ?>...
-
-            </p>
-            <a href="<?php the_permalink(); ?>">
-                Voir l'article
-            </a>
-        </div>
-<?php endwhile;
+    // egal au require  mais spécifique à WP
+    get_template_part('partials/content');  //content.php
+    endwhile;
 endif; ?>
 
 <?php get_footer(); ?>
