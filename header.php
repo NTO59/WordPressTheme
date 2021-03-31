@@ -19,6 +19,8 @@
         //Sur Demande de devis : Demande de devis - Agence Plaza
         wp_title('-', true, 'right') ;?> <?php bloginfo('name');?>
     </title>
+
+    
 </head>
 <body>
     <div class="container">

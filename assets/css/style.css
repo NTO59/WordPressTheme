@@ -11461,5 +11461,12 @@ fieldset:disabled .btn {
 body {
   background-color: rgba(0, 0, 0, 0.8);
   color: rgba(255, 255, 255, 0.864);
+  font-family: 'Montserrat', sans-serif;
 }
+
+/* .post-thumbnail{
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+} */
 /*# sourceMappingURL=style.css.map */

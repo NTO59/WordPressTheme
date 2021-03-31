@@ -2,8 +2,13 @@
 
 function my_theme_enqueue_styles()
 {
+    // Google font => Montserrat
+    wp_enqueue_style('Montserrat', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+    
+    
     //href="styles/style.css?v=<?=  time()   ? >" => evite le cache du navigateur
     wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css', [], time());
+
 
     // On integre le  JS de bootstrap
     // LE dernier parametre true permet de mettre la balise script dans le footer et non dans le body
