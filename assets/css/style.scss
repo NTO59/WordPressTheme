@@ -1,4 +1,4 @@
-$primary : #38b2ac;
+$primary : #ae3419;
 
 // Permet d'importer Bootstrap dans notre code
 @import '../../node_modules/bootstrap/scss/bootstrap';
@@ -10,8 +10,30 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* .post-thumbnail{
-    height: 500px;
+.post-thumbnail{
+    height: 400px;
     width: 100%;
     object-fit: cover;
-} */
+}
+.containerDevis{
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .post-thumbnaill{
+
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+        position: absolute;
+    }
+    .titleDevis{
+        position: relative;
+        color: black;
+    }
+}
+.site-description{
+    display: block;
+    font-size: 10px;
+}
+
