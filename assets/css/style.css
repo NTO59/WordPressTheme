@@ -11471,8 +11471,8 @@ body {
      object-fit: cover;
 }
 
-.containerDevis {
-  margin-top: 120px;
+.banner {
+  height: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11484,7 +11484,7 @@ body {
           align-items: center;
 }
 
-.containerDevis .post-thumbnaill {
+.banner .post-thumbnaill {
   height: 300px;
   width: 100%;
   -o-object-fit: cover;
@@ -11492,13 +11492,22 @@ body {
   position: absolute;
 }
 
-.containerDevis .titleDevis {
+.banner .titleDevis {
   position: relative;
-  color: black;
+  color: white;
 }
 
 .site-description {
   display: block;
   font-size: 10px;
+}
+
+.wpforms-container {
+  max-width: 75%;
+  margin: auto;
+}
+
+.wpforms-field-medium {
+  max-width: 100% !important;
 }
 /*# sourceMappingURL=style.css.map */

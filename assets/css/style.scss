@@ -18,8 +18,8 @@ body {
 
 
 
-.containerDevis{
-    margin-top: 120px;
+.banner{
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,7 +32,7 @@ body {
     }
     .titleDevis{
         position: relative;
-        color: black;
+        color: white;
     }
 }
 
@@ -43,3 +43,11 @@ body {
     font-size: 10px;
 }
 
+.wpforms-container{
+    max-width: 75%;
+    margin: auto;
+}
+
+.wpforms-field-medium{
+    max-width: 100% !important;
+}
