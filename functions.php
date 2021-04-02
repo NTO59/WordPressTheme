@@ -11,14 +11,14 @@ function my_theme_enqueue_styles()
     wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css', [], time());
 
     // Slick JS
-    wp_enqueue_script('bootstrap', get_template_directory_uri().'/node_modules/slick-carousel/slick/slick.min.js', [], false, true);
+    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/node_modules/slick-carousel/slick/slick.min.js', [], false, true);
 
     // On integre le  JS de bootstrap
     // Le dernier parametre true permet de mettre la balise script dans le footer et non dans le body
-    wp_enqueue_script('bootstrap', get_template_directory_uri().'/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', [], false, true);
+    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', [], false, true);
 
     // Notre script JS
-    wp_enqueue_script('script', get_template_directory_uri().'/assets/js/script.js', ['jquery'], false, true);
+    wp_enqueue_script('script', get_template_directory_uri() . '/assets/js/script.js', ['jquery'], false, true);
 }
 
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
@@ -32,13 +32,17 @@ register_nav_menu('main-menu', 'Menu Principal');
 /**
  * Register Custom Navigation Walker
  */
-function register_navwalker(){
-	require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
+function register_navwalker()
+{
+    require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 }
-add_action( 'after_setup_theme', 'register_navwalker' );
+add_action('after_setup_theme', 'register_navwalker');
 
 
-function register_my_cpt() {
+function register_my_cpt()
+{
+
+
     register_post_type('project', [
         'label' => 'Projets',
         'labels' => [
@@ -59,11 +63,60 @@ function register_my_cpt() {
         'show_in_rest' => true, // Si on veut activer Gutenberg
         'menu_icon' => 'dashicons-portfolio'
     ]);
+
+    register_post_type('Annonces', [
+        'label' => 'Annonces',
+        'labels' => [
+            'name' => 'Annonces',
+            'singular_name' => 'Annonce',
+            'all_items' => 'Toutes les annonces',
+            'add_new_item' => 'Ajouter une annonce',
+            'edit_item' => 'Éditer l\'annonce',
+            'new_item' => 'Nouvelle annonce',
+            'view_item' => 'Voir l\'annonce',
+            'search_items' => 'Rechercher parmi les annonce',
+            'not_found' => 'Pas d\'annonce trouvée',
+            'not_found_in_trash' => 'Pas d\'annonce dans la corbeille'
+        ],
+        'public' => true,
+        'supports' => ['title', 'editor', 'author', 'thumbnail', 'custom-fields'],
+        'has_archive' => true,
+        'show_in_rest' => true, // Si on veut activer Gutenberg
+        'menu_icon' => 'dashicons-format-chat'
+    ]);
 }
 
-add_action( 'init', 'register_my_cpt' );
+add_action('init', 'register_my_cpt');
+
+
+/**
+ * Annonces immo
+ *
+ * - Créer un nouveau custom post type pour les annonces immo
+ * - Créer quelques annonces immo (https://workcation.netlify.app/)
+ * - Intégrer la page d'archives des annonces immo (Pas de tri par ville mais toutes les annonces pour l'instant)
+ * - On a 4 champs customs: Bed, Bath, Price et Note.
+ * - Bonus et idéalement: on créera une taxonomy Type pour ranger chaque annonce dans son type de bien
+ *   Studio, T2, T3, T4, Maison... Ce qui apparaitra à la place du PLUS sur la maquette.
+ */
 
 
 
 
-
+register_taxonomy('type', 'project', [
+    'label' => 'Types',
+    'labels' => [
+        'name' => 'Types',
+        'singular_name' => 'Type',
+        'all_items' => 'Tous les types',
+        'edit_item' => 'Éditer le type',
+        'view_item' => 'Voir le type',
+        'update_item' => 'Mettre à jour le type',
+        'add_new_item' => 'Ajouter un type',
+        'new_item_name' => 'Nouveau type',
+        'search_items' => 'Rechercher parmi les types',
+        'popular_items' => 'Types les plus utilisés'
+    ],
+    'hierarchical' => true,
+    'show_in_rest' => true, // Pour Gutenberg
+]);

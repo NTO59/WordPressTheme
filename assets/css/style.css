@@ -11459,7 +11459,7 @@ fieldset:disabled .btn {
 }
 
 body {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #212529;
   color: rgba(255, 255, 255, 0.864);
   font-family: 'Montserrat', sans-serif;
 }
@@ -11519,5 +11519,32 @@ body {
   height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.annonces {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.annonces .card-img-top {
+  border: 1px solid white;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px;
+}
+
+.annonces .card-body {
+  margin-left: 12%;
+  margin-top: 100px;
+  height: 200px;
+  border: 1px solid white;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  position: absolute;
+  width: 75%;
 }
 /*# sourceMappingURL=style.css.map */

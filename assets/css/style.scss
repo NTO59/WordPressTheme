@@ -5,7 +5,7 @@ $primary : #ae3419;
 
 
 body {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #212529;
     color: rgba(255, 255, 255, 0.864);
     font-family: 'Montserrat', sans-serif;
 }
@@ -58,5 +58,30 @@ body {
     .card-img-top{
         height: 200px;
         object-fit: cover;
+    }
+}
+
+.annonces{
+    
+    display: flex;
+    position: relative;
+    width: 100%;
+    
+    .card-img-top{
+        border: 1px solid white;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 20px ;
+    }
+    .card-body {
+        
+        margin-left: 12%;
+        margin-top: 100px;
+        height: 200px;
+        border: 1px solid white;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        position: absolute;
+        width: 75%;
     }
 }
