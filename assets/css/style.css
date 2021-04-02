@@ -11510,4 +11510,14 @@ body {
 .wpforms-field-medium {
   max-width: 100% !important;
 }
+
+.projects .card {
+  height: 100%;
+}
+
+.projects .card-img-top {
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 /*# sourceMappingURL=style.css.map */

@@ -23,13 +23,7 @@ par dessus l'image , on affiche le titre de la page (centré verticalement et ho
     <h1 class="titleDevis"><?php the_title() ?></h1>
 
 </div>
-<div class="container">
-    <div id="toto">
-        <div>A</div>
-        <div>B</div>
-        <div>C</div>
-    </div>
-</div>
+
 
 <script>
     window.onload = function () {
