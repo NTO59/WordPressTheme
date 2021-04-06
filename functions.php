@@ -33,6 +33,20 @@ add_theme_support('post-thumbnails');
 // Ajouter un emplacement de menu
 register_nav_menu('main-menu', 'Menu Principal');
 
+// Ajout du logo
+add_theme_support('custom-logo');
+
+// Ajout sidebar pour le footer 
+register_sidebar([
+    'id' => 'footer-1',
+    'name' => 'footer 1',
+    'before_widget' => '<div class="widget">',
+    'after_widget' => '</div>'
+]);
+register_sidebar(['id' => 'footer-2', 'name' => 'footer 2']);
+register_sidebar(['id' => 'footer-3', 'name' => 'footer 3']);
+register_sidebar(['id' => 'footer-4', 'name' => 'footer 4']);
+
 /**
  * Register Custom Navigation Walker
  */
@@ -139,8 +153,3 @@ add_action('init', 'register_my_cpt');
  * - Bonus et idéalement: on créera une taxonomy Type pour ranger chaque annonce dans son type de bien
  *   Studio, T2, T3, T4, Maison... Ce qui apparaitra à la place du PLUS sur la maquette.
  */
-
-
-
-
-

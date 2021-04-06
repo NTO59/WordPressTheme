@@ -28,29 +28,41 @@
     <!-- type de page actuelle  <h1><?php echo get_post_type(); ?></h1> -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="<?= home_url();?>">
-                <?php bloginfo('name'); ?>
+            <a class="navbar-brand texte-center" href="<?= home_url(); ?>">
+                <?php
+                $logoId = get_theme_mod('custom_logo');
+                $logoImg = wp_get_attachment_image_url($logoId, 'full');
+                ?>
+
+                <?php if ($logoImg) { ?>
+                    <img src="<?= $logoImg ?>" height="75" alt="<?= bloginfo('name') ?>">
+
+                <?php } else { 
+                     bloginfo('name');
+                } ?>
+
+                
                 <span class="site-description"> <?php bloginfo('description'); ?> </span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <?php
-            // On affiche le menu attaché à l'emplacement 'main-menu'
-            wp_nav_menu([
-                'theme_location' => 'main-menu',
-                'depth' => 2, // profondeur du menu
-                'container' => false, // On supprime la div générée par WP
-                'container_class' => 'collapse navbar-collapse',
-                'container_id' => 'navbarSupportedContent',
-                'menu_class' => 'navbar-nav me-auto mb-2 mb-lg-0',
-                'walker' => new WP_Bootstrap_Navwalker()
-            ]); ?>
-                
+                <?php
+                // On affiche le menu attaché à l'emplacement 'main-menu'
+                wp_nav_menu([
+                    'theme_location' => 'main-menu',
+                    'depth' => 2, // profondeur du menu
+                    'container' => false, // On supprime la div générée par WP
+                    'container_class' => 'collapse navbar-collapse',
+                    'container_id' => 'navbarSupportedContent',
+                    'menu_class' => 'navbar-nav me-auto mb-2 mb-lg-0',
+                    'walker' => new WP_Bootstrap_Navwalker()
+                ]); ?>
+
             </div>
             <form class="d-flex">
-                <input class="form-control me-2" type="search" name="s" placeholder="Search" <?= $_GET['s'] ?? '';?>  aria-label="Search">
+                <input class="form-control me-2" type="search" name="s" placeholder="Search" <?= $_GET['s'] ?? ''; ?> aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
