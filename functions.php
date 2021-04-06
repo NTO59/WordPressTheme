@@ -13,6 +13,10 @@ function my_theme_enqueue_styles()
     // Slick JS
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/node_modules/slick-carousel/slick/slick.min.js', [], false, true);
 
+    // Isotope JS
+    wp_enqueue_script('isotope', get_template_directory_uri() . '/node_modules/isotope-layout/dist/isotope.pkgd.min.js', [], false, true);
+
+
     // On integre le  JS de bootstrap
     // Le dernier parametre true permet de mettre la balise script dans le footer et non dans le body
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', [], false, true);
@@ -64,7 +68,7 @@ function register_my_cpt()
         'menu_icon' => 'dashicons-portfolio'
     ]);
 
-    register_post_type('Annonces', [
+    register_post_type('annonces', [
         'label' => 'Annonces',
         'labels' => [
             'name' => 'Annonces',
@@ -83,6 +87,42 @@ function register_my_cpt()
         'has_archive' => true,
         'show_in_rest' => true, // Si on veut activer Gutenberg
         'menu_icon' => 'dashicons-format-chat'
+    ]);
+
+    register_taxonomy('property-type', 'annonces', [
+
+        'labels' => [
+            'name' => 'Types',
+            'singular_name' => 'Type',
+            'all_items' => 'Tous les types',
+            'edit_item' => 'Éditer le type',
+            'view_item' => 'Voir le type',
+            'update_item' => 'Mettre à jour le type',
+            'add_new_item' => 'Ajouter un type',
+            'new_item_name' => 'Nouveau type',
+            'search_items' => 'Rechercher parmi les types',
+            'popular_items' => 'Types les plus utilisés'
+        ],
+        'hierarchical' => true,
+        'show_in_rest' => true, // Pour Gutenberg
+    ]);
+
+    //les villes
+    register_taxonomy('city', 'annonces', [
+        'labels' => [
+            'name' => 'Villes',
+            'singular_name' => 'Villes',
+            'all_items' => 'Toutes les villes',
+            'edit_item' => 'Éditer la ville',
+            'view_item' => 'Voir la ville',
+            'update_item' => 'Mettre à jour la ville',
+            'add_new_item' => 'Ajouter une ville',
+            'new_item_name' => 'Nouvelle ville',
+            'search_items' => 'Rechercher parmi les villes',
+            'popular_items' => 'Villes les plus utilisés'
+        ],
+        'hierarchical' => true,
+        'show_in_rest' => true, // Pour Gutenberg
     ]);
 }
 
@@ -103,20 +143,4 @@ add_action('init', 'register_my_cpt');
 
 
 
-register_taxonomy('type', 'project', [
-    'label' => 'Types',
-    'labels' => [
-        'name' => 'Types',
-        'singular_name' => 'Type',
-        'all_items' => 'Tous les types',
-        'edit_item' => 'Éditer le type',
-        'view_item' => 'Voir le type',
-        'update_item' => 'Mettre à jour le type',
-        'add_new_item' => 'Ajouter un type',
-        'new_item_name' => 'Nouveau type',
-        'search_items' => 'Rechercher parmi les types',
-        'popular_items' => 'Types les plus utilisés'
-    ],
-    'hierarchical' => true,
-    'show_in_rest' => true, // Pour Gutenberg
-]);
+

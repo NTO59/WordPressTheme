@@ -1,4 +1,4 @@
-$primary : #ae3419;
+$primary : #19ae9a;
 
 // Permet d'importer Bootstrap dans notre code
 @import '../../node_modules/bootstrap/scss/bootstrap';
@@ -67,6 +67,7 @@ body {
     position: relative;
     width: 100%;
     
+    
     .card-img-top{
         border: 1px solid white;
         height: 200px;
@@ -76,12 +77,22 @@ body {
     .card-body {
         
         margin-left: 12%;
-        margin-top: 100px;
-        height: 200px;
+        margin-top: 150px;
+        height: auto;
         border: 1px solid white;
         margin-bottom: 20px;
         border-radius: 20px;
         position: absolute;
         width: 75%;
+        .card-title{
+            font-weight: 700;
+            font-size: 15px;
+        }
+    }
+    .star svg{
+        color: white;
+        fill: currentcolor;
+        width: 16px;
+        height: 16px;
     }
 }
